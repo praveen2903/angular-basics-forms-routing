@@ -3,19 +3,17 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { Home } from './components/home/home';
+import { Book } from './components/book/book';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    App
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideClientHydration(withEventReplay()),
-  ],
-  bootstrap: [App]
+  declarations: [App, Home, Book],
+  imports: [BrowserModule, AppRoutingModule, CommonModule, FormsModule, ReactiveFormsModule],
+  providers: [provideBrowserGlobalErrorListeners(), provideClientHydration(withEventReplay()), provideHttpClient(withFetch())],
+  bootstrap: [App],
 })
 export class AppModule { }

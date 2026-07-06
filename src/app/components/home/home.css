@@ -1,0 +1,97 @@
+/* Container */
+.locations-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* Card */
+.location-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: 0.3s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Image */
+.location-card img {
+    width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Content */
+.location-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Title */
+.location-name {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* Description */
+.location-description {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Button */
+.book-btn {
+    width: fit-content;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    background: #1976d2;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.book-btn:hover {
+    background: #125ca5;
+}
+
+/* Error Message */
+.error-message {
+    text-align: center;
+    color: #d32f2f;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .location-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .location-card img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .location-details {
+        align-items: center;
+    }
+}

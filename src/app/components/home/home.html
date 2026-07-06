@@ -1,0 +1,27 @@
+<div *ngIf="!errorMessage; else errorBlock" class="locations-container">
+    <div *ngFor="let location of locations">
+        <div class="location-card">
+            <img [src]="location.image" [alt]="location.name">
+
+            <div class="location-details">
+                <div class="location-name">
+                    {{ location.name }}
+                </div>
+
+                <div class="location-description">
+                    {{ location.description }}
+                </div>
+
+                <button class="book-btn" type="button" (click)="book(location)">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #errorBlock>
+    <div class="error-message">
+        {{ errorMessage }}
+    </div>
+</ng-template>
