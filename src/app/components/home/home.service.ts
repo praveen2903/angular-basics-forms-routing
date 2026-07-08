@@ -10,6 +10,6 @@ export class HomeService {
   constructor(private http: HttpClient) {}
 
   getLocations(): Observable<LocationsModel[]>{
-    return this.http.get<LocationsModel[]>('http://localhost:3000/locations').pipe(retry(2));
+    return this.http.get<LocationsModel[]>('http://localhost:4000/locations').pipe(retry(2));
   }
 }
