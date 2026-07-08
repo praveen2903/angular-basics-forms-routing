@@ -1,1 +1,27 @@
-<p>view-bookings works!</p>
+<div class="view-booking-container">
+    <table class="booking-table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Phone Number</th>
+            <th>Passengers</th>
+            <th>Visit Date</th>
+            <th>Package</th>
+            <th colspan="2">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let booking of bookings">
+            <td>{{booking.name}}</td>
+            <td>{{booking.locationName}}</td>
+            <td>{{booking.phoneNumber}}</td>
+            <td>{{booking.noOfPeople}}</td>
+            <td>{{booking.visitDate}}</td>
+            <td>{{booking.packageType}}</td>
+            <td><button class="edit-btn" (click)="editButton(booking.id)">Edit</button></td>
+            <td><button class="delete-btn" (click)="deleteButton(booking.id)">Delete</button></td>
+          </tr>
+        </tbody>
+    </table>
+</div>

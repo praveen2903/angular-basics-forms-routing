@@ -1,0 +1,94 @@
+.view-bookings-container {
+  width: 95%;
+  max-width: 1300px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.view-bookings-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 20px;
+  color: #2c3e50;
+  font-size: 30px;
+}
+
+.booking-table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 80%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.booking-table thead {
+  background: #1976d2;
+  color: white;
+}
+
+.booking-table th {
+  padding: 16px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.booking-table td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.booking-table tbody tr:nth-child(even) {
+  background: #f7f9fc;
+}
+
+.booking-table tbody tr:hover {
+  background: #eaf4ff;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #2196f3;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.delete-btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #fb1b1b;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;  
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  background: #1565c0;
+  transform: translateY(-2px);
+}
+
+.edit-btn:active {
+  transform: scale(0.97);
+}
+.delete-btn:hover {
+  background: #d91111;
+  transform: translateY(-2px);
+}
+
+.delete-btn:active {
+  transform: scale(0.97);
+}

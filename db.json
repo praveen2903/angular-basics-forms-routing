@@ -39,49 +39,6 @@
   ],
   "bookings": [
     {
-      "locationName": "Ooty",
-      "name": "Rahul Sharma",
-      "email": "rahul.sharma@example.com",
-      "phoneNumber": "9876543210",
-      "visitDate": "2026-07-15",
-      "packageType": "Premium",
-      "requirements": [],
-      "noOfPeople": 4,
-      "passengerDetails": [
-        {
-          "passengerName": "Rahul Sharma",
-          "gender": "Male",
-          "age": 32,
-          "preferences": []
-        },
-        {
-          "passengerName": "Sneha Sharma",
-          "gender": "Female",
-          "age": 29,
-          "preferences": []
-        },
-        {
-          "passengerName": "Aarav Sharma",
-          "gender": "Male",
-          "age": 8,
-          "preferences": [
-            "Travel Insurance",
-            "Vegetarian"
-          ]
-        },
-        {
-          "passengerName": "Ananya Sharma",
-          "gender": "Female",
-          "age": 5,
-          "preferences": [
-            "Vegetarian",
-            "Wheelchair Assistance"
-          ]
-        }
-      ],
-      "id": 1
-    },
-    {
       "locationName": "Goa Beach",
       "name": "Priya Reddy",
       "email": "priya.reddy@example.com",
@@ -135,6 +92,31 @@
         }
       ],
       "id": 4
+    },
+    {
+      "locationId": "2",
+      "locationName": "Ooty",
+      "name": "Sai praveen Rokkam",
+      "email": "rokkamsaipraveen5l0@gmail.com",
+      "phoneNumber": "7569522435",
+      "visitDate": "2026-07-30",
+      "packageType": "Premium",
+      "requirements": [
+        "window side",
+        "room booking"
+      ],
+      "noOfPeople": 1,
+      "passengerDetails": [
+        {
+          "passengerName": "praveen",
+          "age": 22,
+          "gender": "Male",
+          "preferences": [
+            ""
+          ]
+        }
+      ],
+      "id": 5
     }
   ]
 }

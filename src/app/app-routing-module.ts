@@ -19,7 +19,7 @@ const routes: Routes = [
     component: ViewBookings
   },
   {
-    path:'editBooking/:locationName',
+    path:'editBooking/:bookingId',
     component: EditBookings
   },
 
