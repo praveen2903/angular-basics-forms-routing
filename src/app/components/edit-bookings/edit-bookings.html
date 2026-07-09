@@ -1,1 +1,184 @@
-<p>edit-bookings works!</p>
+<div class="page">
+    <section class="card">
+        <form [formGroup]="editBookingForm" (ngSubmit)="handleSubmit()" class="booking-form">
+            <h2>Edit Your Trip</h2>
+
+            <div class="form-group">
+                <label>Location Name</label>
+                <select formControlName="locationName">
+
+                    <option *ngFor="let location of locations" [value]="location.name">{{location.name}}</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Name</label>
+
+                <input type="text" formControlName="name" placeholder="Enter your name">
+
+                <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['required']">
+                    Name is required.
+                </small>
+
+                <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['minlength']">
+                    Minimum 3 characters required.
+                </small>
+
+                <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['maxlength']">
+                    Maximum 30 characters allowed.
+                </small>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label>Email</label>
+
+                <input type="email" formControlName="email" placeholder="Enter your email">
+
+                <small class="error" *ngIf="(submitted || f['email'].touched) && f['email'].errors?.['required']">
+                    Email is required.
+                </small>
+
+                <small class="error" *ngIf="(submitted || f['email'].touched) && f['email'].errors?.['invalidEmail']">
+                    Invalid email format.
+                </small>
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+
+                <input type="tel" formControlName="phoneNumber" placeholder="Enter Phone Number... ">
+
+                <small class="error" *ngIf="(submitted || f['phoneNumber'].touched) && f['phoneNumber'].errors?.['required']">
+                    Phone number is required.
+                </small>
+
+                <small class="error" *ngIf="(submitted || f['phoneNumber'].touched) && (f['phoneNumber'].errors?.['pattern'] || f['phoneNumber'].errors?.['minlength'] || f['phoneNumber'].errors?.['maxlength'])">
+                    Enter a valid 10-digit phone number.
+                </small>
+            </div>
+
+            <!-- Visit Date -->
+            <div class="form-group">
+                <label>Visit Date</label>
+
+                <input type="date" formControlName="visitDate">
+                <small class="error" *ngIf="(submitted || f['visitDate'].touched) && f['visitDate'].errors?.['required']">
+                    Visit date is required.
+                </small>
+
+                <small class="error" *ngIf="(submitted || f['visitDate'].touched) && f['visitDate'].errors?.['invalidDate']">
+                    Date must be after today.
+                </small>
+            </div>
+
+            <!-- Package -->
+            <div class="form-group">
+                <label>Package Type</label>
+
+                <select formControlName="packageType">
+                    <option value="">Select Package</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Premium">Premium</option>
+                    <option value="Luxury">Luxury</option>
+                </select>
+
+                <small class="error" *ngIf="(submitted || f['packageType'].touched) && f['packageType'].errors?.['required']">
+                    Please select a package.
+                </small>
+            </div>
+
+            <!-- Requirements -->
+            <div class="form-group">
+                <label>Special Requirements</label>
+                <div formArrayName="requirements">
+                    <div *ngFor="let requirement of requirements.controls; let i=index" style="display: flex; gap: 20px;">
+                        <input [type]="'text'" [formControlName]="i"/>
+                        <button class="requirementButton" type="button" (click)="removeRequirements(i)">Remove</button>
+                    </div>
+                </div>
+                <button class="requirementButton" type="button" (keydown.enter)="addRequirements()" (click)="addRequirements()">Add Requirement</button>
+            </div>
+
+            <!-- Number of People -->
+            <div class="form-group">
+                <label>Number of People</label>
+                <input type="number" min="1" formControlName="noOfPeople">
+
+                <small class="error" *ngIf="(submitted || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['required']">
+                    Enter the number of people.
+                </small>
+
+                <small class="error" *ngIf="(submitted || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['min']">
+                    Minimum 1 person required.
+                </small>
+
+                <small class="error" *ngIf="(submitted || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['max']">
+                    Maximum 6 people allowed.
+                </small>
+            </div>
+
+            <!-- Passenger Details -->
+            <div formArrayName="passengerDetails" *ngIf="passengerDetails.controls.length">
+                <h3>Passenger Details</h3>
+                <div class="passenger-card" *ngFor="let passenger of passengerDetails.controls; let i = index" [formGroupName]="i">
+                    <h4>Passenger {{ i + 1 }}</h4>
+                    <div class="form-group">
+                        <label>Passenger Name</label>
+                        <input type="text" formControlName="passengerName">
+
+                        <small class="error" *ngIf="submitted && passenger.get('passengerName')?.errors?.['required']">
+                            Passenger name is required.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" formControlName="age">
+                        <small class="error" *ngIf="submitted && passenger.get('age')?.errors?.['required']">
+                            Age is required.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-group" style="display: flex; align-items: center; justify-content: left; gap: 20px;">
+                            <label class="radio-option" style="display: flex;">
+                                <input type="radio" formControlName="gender" value="Male">
+                                Male
+                            </label>
+
+                            <label class="radio-option" style="display: flex;">
+                                <input type="radio" formControlName="gender" value="Female">
+                                Female
+                            </label>
+
+                            <label class="radio-option" style="display: flex;">
+                                <input type="radio" formControlName="gender" value="Other">
+                                Other
+                            </label>
+                        </div>
+                        <small class="error" *ngIf="submitted && passenger.get('gender')?.errors?.['required']">
+                            Select gender.
+                        </small>
+                    </div>
+                    <div class="form-group">
+
+    <label>Preferences</label>
+
+    <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 20px 40px;">
+        <div class="checkbox-group" *ngFor="let preference of preferencesDetails" style="background-color: lightgray; padding: 10px; border-radius: 5px;">
+            <label class="checkbox-option" style="display: flex; justify-content: left;"> 
+                <input type="checkbox" [checked]="passenger.get('preferences')?.value?.includes(preference)" (change)="togglePreference($event, i, preference)">
+                {{ preference }}
+            </label>
+        </div>
+    </div>
+
+</div>
+                </div>
+            </div>
+            <button type="submit" [disabled]="editBookingForm.invalid">Book Now</button>
+        </form>
+    </section>
+</div>

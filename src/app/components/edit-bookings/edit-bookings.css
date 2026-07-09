@@ -1,0 +1,180 @@
+/* Page */
+
+.page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    padding: 40px 20px;
+}
+
+.page h2 {
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* Card */
+
+.card {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Form */
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Label */
+
+.booking-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 12px;
+}
+
+/* Inputs */
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    /* width: 100%; */
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: .25s;
+}
+
+.booking-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+}
+
+/* Readonly */
+
+.booking-form input[readonly] {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+/* Form Group */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Error */
+
+.error {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Passenger Section */
+
+.booking-form h3 {
+    margin-top: 25px;
+    color: #1f2937;
+}
+
+.passenger-card {
+    margin-top: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #dbeafe;
+    background: #f8fbff;
+}
+
+.passenger-card h4 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #2563eb;
+}
+
+/* Button */
+
+.booking-form button {
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.booking-form button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.booking-form button:active {
+    transform: scale(.98);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .card {
+        padding: 20px;
+    }
+
+    .page h2 {
+        font-size: 26px;
+    }
+
+    .booking-form {
+        gap: 15px;
+    }
+}
+.booking-form button:disabled {
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: gray;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: not-allowed;
+    transition: .25s;
+    opacity: 0.5;
+    cursor: not-allowed; 
+}
+
+.requirementButton {
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+    margin-top: 20px;
+}
