@@ -1,30 +1,24 @@
 <div class="page">
     <section class="card">
-        <form [formGroup]="editBookingForm" (ngSubmit)="handleSubmit()" class="booking-form">
+        <form [formGroup]="editBookingForm" (ngSubmit)="handleSubmit()" class="booking-form" *ngIf="editBookingForm">
             <h2>Edit Your Trip</h2>
 
             <div class="form-group">
                 <label>Location Name</label>
                 <select formControlName="locationName">
-
                     <option *ngFor="let location of locations" [value]="location.name">{{location.name}}</option>
-
                 </select>
             </div>
 
             <div class="form-group">
                 <label>Name</label>
-
                 <input type="text" formControlName="name" placeholder="Enter your name">
-
                 <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['required']">
                     Name is required.
                 </small>
-
                 <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['minlength']">
                     Minimum 3 characters required.
                 </small>
-
                 <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['maxlength']">
                     Maximum 30 characters allowed.
                 </small>
@@ -33,26 +27,21 @@
             <!-- Email -->
             <div class="form-group">
                 <label>Email</label>
-
                 <input type="email" formControlName="email" placeholder="Enter your email">
-
                 <small class="error" *ngIf="(submitted || f['email'].touched) && f['email'].errors?.['required']">
                     Email is required.
                 </small>
-
                 <small class="error" *ngIf="(submitted || f['email'].touched) && f['email'].errors?.['invalidEmail']">
                     Invalid email format.
                 </small>
             </div>
+
             <div class="form-group">
                 <label>Phone Number</label>
-
                 <input type="tel" formControlName="phoneNumber" placeholder="Enter Phone Number... ">
-
                 <small class="error" *ngIf="(submitted || f['phoneNumber'].touched) && f['phoneNumber'].errors?.['required']">
                     Phone number is required.
                 </small>
-
                 <small class="error" *ngIf="(submitted || f['phoneNumber'].touched) && (f['phoneNumber'].errors?.['pattern'] || f['phoneNumber'].errors?.['minlength'] || f['phoneNumber'].errors?.['maxlength'])">
                     Enter a valid 10-digit phone number.
                 </small>
@@ -61,12 +50,10 @@
             <!-- Visit Date -->
             <div class="form-group">
                 <label>Visit Date</label>
-
                 <input type="date" formControlName="visitDate">
                 <small class="error" *ngIf="(submitted || f['visitDate'].touched) && f['visitDate'].errors?.['required']">
                     Visit date is required.
                 </small>
-
                 <small class="error" *ngIf="(submitted || f['visitDate'].touched) && f['visitDate'].errors?.['invalidDate']">
                     Date must be after today.
                 </small>
@@ -75,14 +62,12 @@
             <!-- Package -->
             <div class="form-group">
                 <label>Package Type</label>
-
                 <select formControlName="packageType">
                     <option value="">Select Package</option>
                     <option value="Standard">Standard</option>
                     <option value="Premium">Premium</option>
                     <option value="Luxury">Luxury</option>
                 </select>
-
                 <small class="error" *ngIf="(submitted || f['packageType'].touched) && f['packageType'].errors?.['required']">
                     Please select a package.
                 </small>
@@ -178,7 +163,7 @@
 </div>
                 </div>
             </div>
-            <button type="submit" [disabled]="editBookingForm.invalid">Book Now</button>
+            <button type="submit" [disabled]="editBookingForm.invalid">Update Booking</button>
         </form>
     </section>
 </div>
