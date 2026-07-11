@@ -36,3 +36,19 @@
         {{ errorMessage }}
     </div>
 </ng-template>
+
+
+<div class="code-tabs-container">
+    <div class="code-tabs-header">
+        <button type="button" class="code-tab-button" 
+                *ngFor="let item of data" 
+                [class.active]="setIndex == item.index" 
+                (click)="setDataIndex(item.index)">
+            {{item.index}}
+        </button>
+    </div>
+    <ng-container *ngFor="let item of data">
+        <pre class="code-tab-content" *ngIf="setIndex == item.index">{{item.value}}</pre>
+    </ng-container>
+</div>
+
