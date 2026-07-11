@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { HomeService } from './home.service';
 import { LocationsModel } from './home.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './home.css',
 })
 export class Home {
-  constructor(private hs: HomeService, private router: Router, private cdr: ChangeDetectorRef) {}
+  constructor(private hs: HomeService, private router: Router, private cdr: ChangeDetectorRef, public authService: AuthService) {}
   
   locations: LocationsModel[]=[];
   errorMessage:string='';

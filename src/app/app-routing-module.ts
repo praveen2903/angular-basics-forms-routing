@@ -4,6 +4,7 @@ import { Home } from './components/home/home';
 import { Book } from './components/book/book';
 import { ViewBookings } from './components/view-bookings/view-bookings';
 import { EditBookings } from './components/edit-bookings/edit-bookings';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
   },
   {
     path:'viewBookings',
-    component: ViewBookings
+    component: ViewBookings,
+    canActivate: [AuthGuard]
   },
   {
     path:'editBooking/:bookingId',

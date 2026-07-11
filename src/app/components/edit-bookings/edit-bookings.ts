@@ -159,7 +159,7 @@ export class EditBookings implements OnInit {
     this.editBookingService.editBooking(this.bookingId, payload).subscribe({
         next: () => {
           alert('Booking Updated Successfully');
-          this.router.navigate(['/']);
+          this.router.navigate(['/viewBookings']);
         },
         error: err => {
           console.log(err);

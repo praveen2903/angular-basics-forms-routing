@@ -18,15 +18,15 @@
 
                 <input type="text" formControlName="name" placeholder="Enter your name">
 
-                <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['required']">
+                <small class="error" *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched) && f['name'].errors?.['required']">
                     Name is required.
                 </small>
 
-                <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['minlength']">
+                <small class="error" *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched) && f['name'].errors?.['minlength']">
                     Minimum 3 characters required.
                 </small>
 
-                <small class="error" *ngIf="(submitted || f['name'].touched) && f['name'].errors?.['maxlength']">
+                <small class="error" *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched) && f['name'].errors?.['maxlength']">
                     Maximum 30 characters allowed.
                 </small>
             </div>
@@ -37,11 +37,11 @@
 
                 <input type="email" formControlName="email" placeholder="Enter your email">
 
-                <small class="error" *ngIf="(submitted || f['email'].touched) && f['email'].errors?.['required']">
+                <small class="error" *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched) && f['email'].errors?.['required']">
                     Email is required.
                 </small>
 
-                <small class="error" *ngIf="(submitted || f['email'].touched) && f['email'].errors?.['invalidEmail']">
+                <small class="error" *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched) && f['email'].errors?.['invalidEmail']">
                     Invalid email format.
                 </small>
             </div>
@@ -50,11 +50,11 @@
 
                 <input type="tel" formControlName="phoneNumber" placeholder="Enter Phone Number... ">
 
-                <small class="error" *ngIf="(submitted || f['phoneNumber'].touched) && f['phoneNumber'].errors?.['required']">
+                <small class="error" *ngIf="f['phoneNumber'].invalid && (f['phoneNumber'].dirty || f['phoneNumber'].touched) && f['phoneNumber'].errors?.['required']">
                     Phone number is required.
                 </small>
 
-                <small class="error" *ngIf="(submitted || f['phoneNumber'].touched) && (f['phoneNumber'].errors?.['pattern'] || f['phoneNumber'].errors?.['minlength'] || f['phoneNumber'].errors?.['maxlength'])">
+                <small class="error" *ngIf="f['phoneNumber'].invalid && (f['phoneNumber'].dirty || f['phoneNumber'].touched) && (f['phoneNumber'].errors?.['pattern'] || f['phoneNumber'].errors?.['minlength'] || f['phoneNumber'].errors?.['maxlength'])">
                     Enter a valid 10-digit phone number.
                 </small>
             </div>
@@ -64,11 +64,11 @@
                 <label>Visit Date</label>
 
                 <input type="date" formControlName="visitDate">
-                <small class="error" *ngIf="(submitted || f['visitDate'].touched) && f['visitDate'].errors?.['required']">
+                <small class="error" *ngIf="f['visitDate'].invalid && (f['visitDate'].dirty || f['visitDate'].touched) && f['visitDate'].errors?.['required']">
                     Visit date is required.
                 </small>
 
-                <small class="error" *ngIf="(submitted || f['visitDate'].touched) && f['visitDate'].errors?.['invalidDate']">
+                <small class="error" *ngIf="f['visitDate'].invalid && (f['visitDate'].dirty || f['visitDate'].touched) && f['visitDate'].errors?.['invalidDate']">
                     Date must be after today.
                 </small>
             </div>
@@ -84,7 +84,7 @@
                     <option value="Luxury">Luxury</option>
                 </select>
 
-                <small class="error" *ngIf="(submitted || f['packageType'].touched) && f['packageType'].errors?.['required']">
+                <small class="error" *ngIf="f['packageType'].invalid && (f['packageType'].dirty || f['packageType'].touched) && f['packageType'].errors?.['required']">
                     Please select a package.
                 </small>
             </div>
@@ -106,15 +106,15 @@
                 <label>Number of People</label>
                 <input type="number" min="1" formControlName="noOfPeople">
 
-                <small class="error" *ngIf="(submitted || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['required']">
+                <small class="error" *ngIf="f['noOfPeople'].invalid && (f['noOfPeople'].dirty || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['required']">
                     Enter the number of people.
                 </small>
 
-                <small class="error" *ngIf="(submitted || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['min']">
+                <small class="error" *ngIf="f['noOfPeople'].invalid && (f['noOfPeople'].dirty || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['min']">
                     Minimum 1 person required.
                 </small>
 
-                <small class="error" *ngIf="(submitted || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['max']">
+                <small class="error" *ngIf="f['noOfPeople'].invalid && (f['noOfPeople'].dirty || f['noOfPeople'].touched) && f['noOfPeople'].errors?.['max']">
                     Maximum 6 people allowed.
                 </small>
             </div>
@@ -128,7 +128,7 @@
                         <label>Passenger Name</label>
                         <input type="text" formControlName="passengerName">
 
-                        <small class="error" *ngIf="submitted && passenger.get('passengerName')?.errors?.['required']">
+                        <small class="error" *ngIf="passenger.get('passengerName')?.invalid && (passenger.get('passengerName')?.dirty || passenger.get('passengerName')?.touched) && passenger.get('passengerName')?.errors?.['required']">
                             Passenger name is required.
                         </small>
                     </div>
@@ -136,7 +136,7 @@
                     <div class="form-group">
                         <label>Age</label>
                         <input type="number" formControlName="age">
-                        <small class="error" *ngIf="submitted && passenger.get('age')?.errors?.['required']">
+                        <small class="error" *ngIf="passenger.get('age')?.invalid && (passenger.get('age')?.dirty || passenger.get('age')?.touched) && passenger.get('age')?.errors?.['required']">
                             Age is required.
                         </small>
                     </div>
@@ -159,7 +159,7 @@
                                 Other
                             </label>
                         </div>
-                        <small class="error" *ngIf="submitted && passenger.get('gender')?.errors?.['required']">
+                        <small class="error" *ngIf="passenger.get('gender')?.invalid && (passenger.get('gender')?.dirty || passenger.get('gender')?.touched) && passenger.get('gender')?.errors?.['required']">
                             Select gender.
                         </small>
                     </div>
